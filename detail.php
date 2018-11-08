@@ -1,7 +1,6 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
 
-<?php $title = 'Detail' ?>
 
 <?php include ('inc/header.php') ?>
 
