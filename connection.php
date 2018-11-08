@@ -2,6 +2,7 @@
 <?php include('inc/fonction.php'); ?>
 <?php
 $title = 'Se connecter';
+
 $errors = array();
   //form soumis
 if (!empty($_POST['submitted'])) {
@@ -31,7 +32,9 @@ if (!empty($_POST['submitted'])) {
       }
     }
 ?>
+
 <?php include('inc/header.php'); ?>
+
 <h1>Se connecter</h1>
 <form class="" action="" method="post">
   <label for="login">Pseudo ou Email</label>

@@ -2,6 +2,7 @@
 <?php include 'inc/pdo.php' ?>
 <?php
 $title = 'S\'inscrire';
+
 // FORMULAIRE SOUMIS
 $error = array();
 if (!empty($_POST['submitted'])) {
@@ -80,8 +81,9 @@ if (!empty($_POST['submitted'])) {
 }
 ?>
 <?php include 'inc/header.php' ?>
+
 <h2>S'inscrire</h2>
-<!-- formulaire d'inscriptions -->
+
 <!-- FORMULAIRES -->
 <form action="" method="post">
 
@@ -107,4 +109,5 @@ if (!empty($_POST['submitted'])) {
     <!-- form submit -->
     <input type="submit" name="submitted" value="Envoyer">
 </form>
+
 <?php include 'inc/footer.php'?>
