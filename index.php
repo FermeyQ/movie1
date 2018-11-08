@@ -1,6 +1,5 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
-
 <?php
 $sql = "SELECT genres FROM movies_full";
 $query = $pdo ->prepare ($sql);
@@ -12,6 +11,7 @@ $tableau = array();
 foreach ($genres as $genre) {
   $g =  $genre['genres'];
   $explode = explode(',',$g);
+
   foreach ($explode as $ex) {
     $ex = trim($ex);
     if(!in_array($ex,$tableau)) {
@@ -42,7 +42,7 @@ print_r ($slug);
 <?php
 
 foreach ( $movies as $movie ) {
-  echo '<a href="detail.php?id=' . $movie['id'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
+  echo '<img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'">';
   echo $movie['title'];
 };
 ?>
