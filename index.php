@@ -1,7 +1,7 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
 
-<?php $title = 'Detail';
+<?php $title = 'Accueil';
 $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 4";
 $query = $pdo ->prepare ($sql);
 $query -> execute ();
