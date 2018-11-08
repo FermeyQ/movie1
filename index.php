@@ -14,7 +14,7 @@ $movies = $query->fetchAll();
 <h1>Accueil</h1>
 <?php
 foreach ( $movies as $movie ) {
-  echo '<a href ="detail.php?id='.$movie['id'].'"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
+  echo '<a href="detail.php?id=' . $movie['id'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
   echo $movie['title'];
 };
 ?>

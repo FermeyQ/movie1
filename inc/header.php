@@ -9,6 +9,5 @@
     <nav>
       <ul>
       <li><a href="index.php">Accueil</a></li>
-      <li><a href="detail.php">Détail</a></li>
       </ul>
     </nav>
