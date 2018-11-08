@@ -1,5 +1,6 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
+
 <?php
 if(!empty($_GET['id']) && is_numeric($_GET['id'])) {
  $id = $_GET['id'];
