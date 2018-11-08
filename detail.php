@@ -18,5 +18,13 @@ $movies = $query->fetch();
 foreach ($movies as $movie) {
   echo $movie . '<br>';
 }
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
+echo 'title: ' . $movies['title'];
 ?>
 <?php include('inc/footer.php'); ?>
