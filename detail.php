@@ -1,6 +1,10 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
+
 <?php
+$title ='Details';
+
+// requete id
 if(!empty($_GET['id']) && is_numeric($_GET['id'])) {
  $id = $_GET['id'];
 }
@@ -10,13 +14,15 @@ $query -> execute();
 $movies = $query->fetch();
 ?>
 
-<?php $title ='Details'; ?>
 <?php include('inc/header.php'); ?>
 
-<img src="posters/<?php echo $id ?>.jpg" alt="">
+<!-- poster -->
+<img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 <br>
+
 <?php
 
+// tout les details
 echo 'title: ' . $movies['title'] . '<br>';
 echo 'year : ' . $movies['year'] . '<br>';
 echo 'genres : ' . $movies['genres'] . '<br>';
@@ -32,4 +38,5 @@ echo 'modified : ' . $movies['modified'] . '<br>';
 echo 'created : ' . $movies['created'] . '<br>';
 echo 'poster_flag : ' . $movies['poster_flag'] . '<br>';
 ?>
+
 <?php include('inc/footer.php'); ?>
