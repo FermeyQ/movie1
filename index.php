@@ -1,6 +1,5 @@
-
-<<<<<<< HEAD
-=======
+<?php include ('inc/pdo.php') ?>
+<?php include ('inc/fonction.php') ?>
 <?php
 $sql = "SELECT genres FROM movies_full";
 $query = $pdo ->prepare ($sql);
@@ -47,4 +46,3 @@ foreach ( $movies as $movie ) {
 ?>
 <input type="button" onclick='window.location.reload(false)' value="+ de films !"/>
 <?php include ('inc/footer.php') ?>
->>>>>>> f33ae9c5c5a130f42e97bd4e31fe05407e54887c
