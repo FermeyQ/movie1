@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="asset/css/style.css">
   </head>
   <body>
-    <nav>
-      <ul>
-      <li><a href="index.php">Accueil</a></li>
-      <li><a href="inscription.php">Inscription</a></li>
-      <li><a href="connection.php">Connexion</a></li>
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="connection.php">Connexion</a></li>
+        </ul>
+      </nav>
+    </header>

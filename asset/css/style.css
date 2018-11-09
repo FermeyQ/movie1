@@ -1,0 +1,18 @@
+@reset.css;
+nav ul{
+
+}
+nav ul li{
+  list-style-type: none;  display: inline-block;
+    width: 15%;
+}
+nav ul li a{
+  padding:15px;
+  background-color: black;
+  color:#fff;
+}
+header{
+  display: inline-block;
+  background-color: darkgrey;
+  margin:auto;
+}

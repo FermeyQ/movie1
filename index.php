@@ -45,30 +45,54 @@ $movies = $query->fetchAll();
       <input type="checkbox" name="Action " class="checkbox" <?=(isset($_POST['Action '])?' checked':'')?>/> Action
       <input type="checkbox" name="Adventure " class="checkbox" <?=(isset($_POST['Adventure '])?' checked':'')?>/> Adventure
       <input type="checkbox" name="Animation " class="checkbox" <?=(isset($_POST['Animation '])?' checked':'')?>/> Animation
-      <input type="checkbox" name="Biography " class="checkbox" <?=(isset($_POST['Biography '])?' checked':'')?>/> Biography 
+      <input type="checkbox" name="Biography " class="checkbox" <?=(isset($_POST['Biography '])?' checked':'')?>/> Biography
       <input type="checkbox" name="Comedy " class="checkbox" <?=(isset($_POST['Comedy '])?' checked':'')?>/> Comedy
-      <input type="checkbox" name="Crime " class="checkbox" <?=(isset($_POST['Crime '])?' checked':'')?>/> Crime 
-      <input type="checkbox" name="Documentary " class="checkbox" <?=(isset($_POST['Documentary '])?' checked':'')?>/> Documentary 
+      <input type="checkbox" name="Crime " class="checkbox" <?=(isset($_POST['Crime '])?' checked':'')?>/> Crime
+      <input type="checkbox" name="Documentary " class="checkbox" <?=(isset($_POST['Documentary '])?' checked':'')?>/> Documentary
       <input type="checkbox" name="Drama" class="checkbox" <?=(isset($_POST['Drama'])?' checked':'')?>/> Drama
       <input type="checkbox" name="Family" class="checkbox" <?=(isset($_POST['Family'])?' checked':'')?>/> Family
       <input type="checkbox" name="Fantasy " class="checkbox" <?=(isset($_POST['Fantasy '])?' checked':'')?>/> Fantasy
       <input type="checkbox" name="Film-Noir" class="checkbox" <?=(isset($_POST['Film-Noir'])?' checked':'')?>/> Film-Noir
       <input type="checkbox" name="History " class="checkbox" <?=(isset($_POST['History '])?' checked':'')?>/> History
       <input type="checkbox" name="Horror " class="checkbox" <?=(isset($_POST['Horror '])?' checked':'')?>/> Horror
-      <input type="checkbox" name="Music " class="checkbox" <?=(isset($_POST['Music '])?' checked':'')?>/> Music 
+      <input type="checkbox" name="Music " class="checkbox" <?=(isset($_POST['Music '])?' checked':'')?>/> Music
       <input type="checkbox" name="Musical " class="checkbox" <?=(isset($_POST['Musical '])?' checked':'')?>/> Musical
       <input type="checkbox" name="Mystery " class="checkbox" <?=(isset($_POST['Mystery '])?' checked':'')?>/> Mystery
-      <input type="checkbox" name="News " class="checkbox" <?=(isset($_POST['News '])?' checked':'')?>/> News 
+      <input type="checkbox" name="News " class="checkbox" <?=(isset($_POST['News '])?' checked':'')?>/> News
       <input type="checkbox" name="Romance " class="checkbox" <?=(isset($_POST['Romance '])?' checked':'')?>/> animation
-      <input type="checkbox" name="Sci-Fi " class="checkbox" <?=(isset($_POST['Sci-Fi '])?' checked':'')?>/> Sci-Fi 
-      <input type="checkbox" name="Short " class="checkbox" <?=(isset($_POST['Short '])?' checked':'')?>/> Short 
+      <input type="checkbox" name="Sci-Fi " class="checkbox" <?=(isset($_POST['Sci-Fi '])?' checked':'')?>/> Sci-Fi
+      <input type="checkbox" name="Short " class="checkbox" <?=(isset($_POST['Short '])?' checked':'')?>/> Short
       <input type="checkbox" name="Sport " class="checkbox" <?=(isset($_POST['Sport '])?' checked':'')?>/> Sport
       <input type="checkbox" name="Thriller " class="checkbox" <?=(isset($_POST['Thriller '])?' checked':'')?>/> Thriller
       <input type="checkbox" name="War " class="checkbox" <?=(isset($_POST['War '])?' checked':'')?>/> War
-      <input type="checkbox" name="Western " class="checkbox" <?=(isset($_POST['Western '])?' checked':'')?>/> Western 
+      <input type="checkbox" name="Western " class="checkbox" <?=(isset($_POST['Western '])?' checked':'')?>/> Western
       <input type="checkbox" name="N/A " class="checkbox" <?=(isset($_POST['N/A '])?' checked':'')?>/> N/A
   </form>
 
+  <?php
+  ///////LES ANNEES
+   $sql = "SELECT year FROM movies_full";
+   $query = $pdo ->prepare ($sql);
+   $query -> execute ();
+   $years = $query->fetchAll();
+
+   $years = $_POST['year'];
+   $lesannees = explode('-',$years);
+   print_r($lesannees);
+//les annees 1900 à 1920
+   $annees0020 = "SELECT year FROM movies-movies_full
+                WHERE  BETWEEN 1900 AND 1920";
+  print_r($annees0020);
+   ?>
+
+ <select class="year" name="year">
+  <option value="<?php echo $annees0020 ?>">1900-1920</option>
+  <option value="1920-1940">1920-1940</option>
+  <option value="1940-1960">1940-1960</option>
+  <option value="1960-1980">1960-1980</option>
+  <option value="1980-2000">1980-2000</option>
+  <option value="2000-2020">2000-2020</option>
+</select> -->
 <?php
 
 // lien detail
