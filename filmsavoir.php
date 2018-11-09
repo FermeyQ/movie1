@@ -10,7 +10,7 @@ $sql = "SELECT * FROM movies_full WHERE slug = :slug";
 $query = $pdo -> prepare($sql);
 $query -> bindValue(':slug',$slug,PDO::PARAM_STR);
 $query -> execute();
-$titles = $query ->fetch();
+$movies = $query ->fetch();
 }
 ?>
 <?php include ('inc/header.php') ?>
@@ -18,8 +18,8 @@ $titles = $query ->fetch();
 <h1>Films a voir !</h1>
 
 <?php
-echo '<a href="detail.php?id=' . $titles['id'] . '"><img src="posters/' . $titles['id'] . '.jpg" alt=" '. $slug.'"></a><br>';
-echo 'title: ' . $titles['title'] . '<br>';
+echo '<a href="detail.php?slut=' . $slug . '"><img src="posters/' . $movies['id'] . '.jpg" alt=" '. $slug.'"></a><br>';
+echo 'title: ' . $movies['title'] . '<br>';
 ?>
 
 

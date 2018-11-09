@@ -16,19 +16,20 @@ $movies = $query->fetch();
 }
 
 ?>
-<?php if (isLogged()): ?>
+<?php if (isLogged());
+        if (!empty($_POST['submitted'])) {
+          echo 'bonjour';
+        }
 
-<?php endif; ?>
+
+?>
+
+
 <?php include('inc/header.php'); ?>
 
 <!-- poster -->
-<img src="posters/<?php echo $movies['id'] ?>.jpg" alt="<?php echo $movies['slug'] ?>">
-<br>
-<a href="filmsavoir.php?slug= <?php echo $slug ?>">
-<input type="submit" name='submitted' value="Film a voir !">
-</a>
-<br>
 <?php
+
 
 // tout les details
 echo 'title: ' . $movies['title'] . '<br>';
