@@ -10,7 +10,7 @@ if (!empty($_POST['submitted'])) {
   $login = trim(strip_tags($_POST['login']));
   $password = trim(strip_tags($_POST['password']));
   //vérification dans la base de données
-  $sql ="SELECT * FROM inscriptions WHERE pseudo = :login OR email=:login";
+  $sql ="SELECT * FROM m1_users WHERE pseudo = :login OR email=:login";
     $query = $pdo->prepare($sql);
     $query -> bindValue(':login',$login,PDO::PARAM_STR);
     $query -> execute();
@@ -23,7 +23,7 @@ if (!empty($_POST['submitted'])) {
     if (count($errors) == 0) {
         $_SESSION['user'] = array(
           'id' => $user['id'],
-          'name' => $user['name'],
+          'pseudo' => $user['pseudo'],
           'email' => $user['email'],
           'role' => $user['role'],
           'ip' => $_SERVER['REMOTE_ADDR'],
@@ -36,6 +36,7 @@ if (!empty($_POST['submitted'])) {
 <?php include('inc/header.php'); ?>
 
 <h1>Se connecter</h1>
+
 <form class="" action="" method="post">
   <label for="login">Pseudo ou Email</label>
   <span><?php if (!empty($errors['login'])){echo $errors['login'];} ?></span>

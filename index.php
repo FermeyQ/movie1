@@ -3,7 +3,6 @@
 
 <?php
 $title = 'Accueil';
-
 // requete genres
 $sql = "SELECT genres FROM movies_full";
 $query = $pdo ->prepare ($sql);
@@ -23,7 +22,6 @@ foreach ($genres as $genre) {
     }
   }
 }
-
 $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 4";
 $query = $pdo ->prepare ($sql);
 $query -> execute ();
@@ -40,7 +38,10 @@ $movies = $query->fetchAll();
 <?php include ('inc/header.php') ?>
 
 <h1>Accueil</h1>
+<?php
 
+?>
+<!-- checkbox categories -->
 <form id="checkbox" method="post" action="">
       <input type="checkbox" name="Action " class="checkbox" <?=(isset($_POST['Action '])?' checked':'')?>/> Action
       <input type="checkbox" name="Adventure " class="checkbox" <?=(isset($_POST['Adventure '])?' checked':'')?>/> Adventure

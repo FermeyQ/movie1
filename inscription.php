@@ -21,7 +21,7 @@ if (!empty($_POST['submitted'])) {
             $error['pseudo'] = 'max 50 caracteres';
         } else {
             //    requete
-            $sql = "SELECT pseudo FROM user WHERE pseudo = :pseudo";
+            $sql = "SELECT pseudo FROM m1_users WHERE pseudo = :pseudo";
             $query = $pdo->prepare($sql);
             $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
             $query->execute();
@@ -40,7 +40,7 @@ if (!empty($_POST['submitted'])) {
             $error['email'] = 'renseigner un email';
         } else {
             //    requete
-            $sql = "SELECT email FROM user WHERE email = :email";
+            $sql = "SELECT email FROM m1_users WHERE email = :email";
             $query = $pdo->prepare($sql);
             $query->bindValue(':email', $email, PDO::PARAM_STR);
             $query->execute();
@@ -70,13 +70,13 @@ if (!empty($_POST['submitted'])) {
         $success = true;
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $token = generateRandomString(120);
-        $sql = "INSERT INTO user (pseudo,email,token,password,role,created_at) VALUES (:pseudo,:email,'$token',:password,'user',NOW())";
+        $sql = "INSERT INTO m1_users (pseudo,email,token,password,role,created_at) VALUES (:pseudo,:email,'$token',:password,'user',NOW())";
         $query = $pdo->prepare($sql);
         $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         $query->bindValue(':email', $email, PDO::PARAM_STR);
         $query->bindValue(':password', $hash, PDO::PARAM_STR);
         $query->execute();
-        header ('location: moncarnet.php');
+        header ('location: connection.php');
     }
 }
 ?>

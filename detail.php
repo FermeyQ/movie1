@@ -12,6 +12,9 @@ $sql = "SELECT * FROM movies_full WHERE id = $id";
 $query = $pdo ->prepare($sql);
 $query -> execute();
 $movies = $query->fetch();
+
+// requete films a voir
+
 ?>
 
 <?php include('inc/header.php'); ?>
@@ -19,7 +22,10 @@ $movies = $query->fetch();
 <!-- poster -->
 <img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 <br>
-
+<a href="filmsavoir.php?id= <?php echo $id ?>">
+<input type="submit" name='submitted' value="Film a voir !"/>
+</a>
+<br>
 <?php
 
 // tout les details
