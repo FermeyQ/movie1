@@ -9,6 +9,7 @@
     <nav>
       <ul>
       <li><a href="index.php">Accueil</a></li>
+      <li><a href="filmsavoir.php">Films a voir !</a></li>
       <li><a href="inscription.php">Inscription</a></li>
       <li><a href="connection.php">Connexion</a></li>
       </ul>

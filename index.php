@@ -2,6 +2,7 @@
 <?php include ('inc/fonction.php') ?>
 
 <?php
+print_r ($_SESSION);
 $title = 'Accueil';
 
 // requete genres
@@ -41,6 +42,7 @@ $movies = $query->fetchAll();
 
 <h1>Accueil</h1>
 
+<!-- checkbox -->
 <form id="checkbox" method="post" action="">
       <input type="checkbox" name="Action " class="checkbox" <?=(isset($_POST['Action '])?' checked':'')?>/> Action
       <input type="checkbox" name="Adventure " class="checkbox" <?=(isset($_POST['Adventure '])?' checked':'')?>/> Adventure

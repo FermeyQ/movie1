@@ -19,7 +19,8 @@ $movies = $query->fetch();
 <!-- poster -->
 <img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 <br>
-
+<input type="button" onclick='' value="Film a voir !"/>
+<br>
 <?php
 
 // tout les details
