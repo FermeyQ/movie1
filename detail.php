@@ -7,13 +7,13 @@ $title ='Details';
 // requete id
 if(!empty($_GET['slug'])) {
 $slug = $_GET['slug'];
-$sql = "SELECT * FROM movies_full WHERE slug = $slug";
+$sql = "SELECT * FROM movies_full WHERE slug = :slug";
 $query = $pdo ->prepare($sql);
+$query -> bindValue(':slug',$slug,PDO::PARAM_STR);
 $query -> execute();
 $movies = $query->fetch();
 
 }
-print_r($movies);
 
 ?>
 <?php if (isLogged()): ?>
@@ -24,12 +24,8 @@ print_r($movies);
 <!-- poster -->
 <img src="posters/<?php echo $movies['id'] ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 <br>
-<a href="filmsavoir.php?id= <?php echo $id ?>">
-<input type="submit" name="submitted" value="">
-</a>
-<br>
-<a href="filmsavoir.php?id= <?php echo $id ?>">
-<input type="submit" name='submitted' value="Film a voir !"/>
+<a href="filmsavoir.php?slug= <?php echo $slug ?>">
+<input type="submit" name='submitted' value="Film a voir !">
 </a>
 <br>
 <?php
