@@ -73,29 +73,39 @@ $movies = $query->fetchAll();
   <?php
 
   ///////LES ANNEES
-   $sql = "SELECT year FROM movies_full";
-   $query = $pdo ->prepare ($sql);
-   $query -> execute ();
-   $years = $query->fetchAll();
+$sql = "SELECT year FROM movies_full";
+$query = $pdo ->prepare ($sql);
+$query -> execute ();
+$years = $query->fetchAll();
 
-   $years = $_POST['year'];
-   $lesannees = explode('-',$years);
-   print_r($lesannees);
+$years = $_POST['year'];
+$lesannees = explode('-',$years);
+
 //les annees 1900 à 1920
-   $annees0020 = "SELECT year FROM movies-movies_full
-                WHERE $lesannees BETWEEN 1900 AND 1920";
-  print_r($annees0020);
-   ?>
+$annees0020 = "SELECT year FROM movies-movies_full
+               WHERE $lesannees BETWEEN 1900 AND 1920";
+$annees2040 = "SELECT year FROM movies-movies_full
+                WHERE $lesannees BETWEEN 1920 AND 1940";
+$annees4060 = "SELECT year FROM movies-movies_full
+                 WHERE $lesannees BETWEEN 1940 AND 1960";
+$annees6080 = "SELECT year FROM movies-movies_full
+                WHERE $lesannees BETWEEN 1960 AND 1980";
+$annees8000 = "SELECT year FROM movies-movies_full
+                 WHERE $lesannees BETWEEN 1980 AND 2000";
+$annees8000 = "SELECT year FROM movies-movies_full
+                WHERE $lesannees BETWEEN 2000 AND 2020";
+?>
 
- <select class="year" name="year">
-  <option value="<?php echo $annees0020 ?>">1900-1920</option>
-  <option value="1920-1940">1920-1940</option>
-  <option value="1940-1960">1940-1960</option>
-  <option value="1960-1980">1960-1980</option>
-  <option value="1980-2000">1980-2000</option>
-  <option value="2000-2020">2000-2020</option>
+<select class="year" name="year">
+ <option value="<?php echo $annees0020 ?>">1900-1920</option>
+ <option value="<?php echo $annees2040 ?>">1920-1940</option>
+ <option value="<?php echo $annees4060 ?>">1940-1960</option>
+ <option value="<?php echo $annees6080 ?>">1960-1980</option>
+ <option value="<?php echo $annees8000 ?>">1980-2000</option>
+ <option value="<?php echo $annees8020 ?>">2000-2020</option>
 </select> -->
 <?php
+
 
 // lien detail
 foreach ( $movies as $movie ) {
