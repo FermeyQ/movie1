@@ -71,6 +71,7 @@ $movies = $query->fetchAll();
   </form>
 
   <?php
+
   ///////LES ANNEES
    $sql = "SELECT year FROM movies_full";
    $query = $pdo ->prepare ($sql);
@@ -82,7 +83,7 @@ $movies = $query->fetchAll();
    print_r($lesannees);
 //les annees 1900 à 1920
    $annees0020 = "SELECT year FROM movies-movies_full
-                WHERE  BETWEEN 1900 AND 1920";
+                WHERE $lesannees BETWEEN 1900 AND 1920";
   print_r($annees0020);
    ?>
 
