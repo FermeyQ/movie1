@@ -4,12 +4,12 @@
 <?php
 $title ='Details';
 // requete id
-if(!empty($_GET['slug'])) {
-$slug = $_GET['slug'];
-$slug = trim($_GET['slug']);
-$sql = "SELECT * FROM movies_full WHERE slug = :slug";
+if(!empty($_GET['id'])) {
+$id = $_GET['id'];
+$id = trim($_GET['id']);
+$sql = "SELECT * FROM movies_full WHERE id = :id";
 $query = $pdo ->prepare($sql);
-$query -> bindValue(':slug',$slug,PDO::PARAM_STR);
+$query -> bindValue(':id',$id,PDO::PARAM_INT);
 $query -> execute();
 $movies = $query->fetch();
 }
@@ -21,10 +21,10 @@ $movies = $query->fetch();
 
 <!-- poster -->
 
-<img src="posters/<?php echo $movies['id'] ?>.jpg" alt="<?php echo $slug ?>">
+<img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 </a>
 <br>
-<a href="filmsavoir.php?slug= <?php echo $slug ?>">
+<a href="filmsavoir.php?id= <?php echo $id ?>">
 <input type="submit" name='submitted' value="Film a voir !">
 </a>
 <br>

@@ -110,7 +110,7 @@ $annees8000 = "SELECT year FROM movies-movies_full
 
 // lien detail
 foreach ( $movies as $movie ) {
-  echo '<a href="detail.php?slug=' . $movie['slug'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
+  echo '<a href="detail.php?id=' . $movie['id'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
   echo $movie['title'];
 };
 ?>
