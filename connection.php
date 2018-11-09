@@ -36,6 +36,7 @@ if (!empty($_POST['submitted'])) {
 <?php include('inc/header.php'); ?>
 
 <h1>Se connecter</h1>
+
 <form class="" action="" method="post">
   <label for="login">Pseudo ou Email</label>
   <span><?php if (!empty($errors['login'])){echo $errors['login'];} ?></span>

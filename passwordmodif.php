@@ -1,7 +1,9 @@
 <?php include('inc/pdo.php'); ?>
 <?php include('inc/fonction.php'); ?>
 <?php
+
 $title = 'Modifié password';
+
 $errors = array();
 // si user existe bien
 if (!empty($_GET['email']) && !empty($_GET['token'])) {
@@ -13,6 +15,7 @@ if (!empty($_GET['email']) && !empty($_GET['token'])) {
   $query ->bindValue(':token',$token,PDO::PARAM_STR);
   $query ->execute();
   $user = $query->fetch();
+
   if (!empty($user)) {
     // form soumis
     if (!empty($_POST['submitted'])) {
@@ -51,7 +54,9 @@ if (!empty($_GET['email']) && !empty($_GET['token'])) {
   header('Location:404.php');
 }
 ?>
+
 <?php include('inc/header.php') ?>
+
 <form class="" action="" method="post">
   <label for="password">Mot de passe</label>
   <span><?php if(!empty($errors['password'])){echo $errors['password'];} ?></span>
@@ -63,13 +68,5 @@ if (!empty($_GET['email']) && !empty($_GET['token'])) {
 
   <input type="submit" name="submitted" value="Modifier">
 </form>
-
-
-
-
-
-
-
-
 
 <?php include('inc/footer.php') ?>

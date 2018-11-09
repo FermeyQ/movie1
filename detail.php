@@ -11,8 +11,10 @@ $sql = "SELECT * FROM movies_full WHERE slug = $slug";
 $query = $pdo ->prepare($sql);
 $query -> execute();
 $movies = $query->fetch();
+
 }
 print_r($movies);
+
 ?>
 <?php if (isLogged()): ?>
 
@@ -24,6 +26,10 @@ print_r($movies);
 <br>
 <a href="filmsavoir.php?id= <?php echo $id ?>">
 <input type="submit" name="submitted" value="">
+</a>
+<br>
+<a href="filmsavoir.php?id= <?php echo $id ?>">
+<input type="submit" name='submitted' value="Film a voir !"/>
 </a>
 <br>
 <?php

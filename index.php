@@ -40,10 +40,8 @@ $movies = $query->fetchAll();
 <h1>Accueil</h1>
 <?php
 
-
-
-
 ?>
+<!-- checkbox categories -->
 <form id="checkbox" method="post" action="">
       <input type="checkbox" name="Action " class="checkbox" <?=(isset($_POST['Action '])?' checked':'')?>/> Action
       <input type="checkbox" name="Adventure " class="checkbox" <?=(isset($_POST['Adventure '])?' checked':'')?>/> Adventure
