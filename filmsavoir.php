@@ -2,14 +2,14 @@
 <?php include ('inc/fonction.php') ?>
 
 <?php
-$id = $_GET['id'];
+$slug = $_GET['slug'];
 $title = 'Films a voir !';
-if(!empty($_GET['id'])) {
-$id = urldecode($_GET['id']);
-$id = trim($_GET['id']);
-$sql = "SELECT * FROM movies_full WHERE id = :id";
+if(!empty($_GET['slug'])) {
+$slug = urldecode($_GET['slug']);
+$slug = trim($_GET['slug']);
+$sql = "SELECT * FROM movies_full WHERE slug = :slug";
 $query = $pdo ->prepare($sql);
-$query -> bindValue(':id',$id,PDO::PARAM_STR);
+$query -> bindValue(':slug',$slug,PDO::PARAM_STR);
 $query -> execute();
 $movies = $query->fetch();
 }
@@ -19,8 +19,8 @@ $movies = $query->fetch();
 <h1>Films a voir !</h1>
 
 
- <a href="detail.php?id=<?php echo $id?>"><img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>"></a><br>
-<p><?php echo $movies['slug'] ?></p>
+ <a href="detail.php?slug=<?php echo $slug?>"><img src="posters/<?php echo $movies['id'] ?>.jpg" alt="<?php echo $slug ?>"></a><br>
+<p><?php echo $slug ?></p>
 
 
 <?php include ('inc/footer.php') ?>
