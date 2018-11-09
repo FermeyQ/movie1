@@ -26,6 +26,13 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 4";
 $query = $pdo ->prepare ($sql);
 $query -> execute ();
 $movies = $query->fetchAll();
+///////LES ANNEES
+$sql = "SELECT year FROM movies_full";
+$query = $pdo ->prepare ($sql);
+$query -> execute ();
+$years = $query->fetchAll();
+$years = $_POST['year'];
+$lesannees = explode('-',$years);
 
 // requete id=slug
 // $sql = "SELECT * FROM movies_full";
@@ -69,17 +76,11 @@ $movies = $query->fetchAll();
       <input type="checkbox" name="Western " class="checkbox" <?=(isset($_POST['Western '])?' checked':'')?>/> Western
       <input type="checkbox" name="N/A " class="checkbox" <?=(isset($_POST['N/A '])?' checked':'')?>/> N/A
   </form>
+<?php
 
-  <?php
 
-  ///////LES ANNEES
-$sql = "SELECT year FROM movies_full";
-$query = $pdo ->prepare ($sql);
-$query -> execute ();
-$years = $query->fetchAll();
 
-$years = $_POST['year'];
-$lesannees = explode('-',$years);
+
 
 //les annees 1900 à 1920
 $annees0020 = "SELECT year FROM movies-movies_full
@@ -96,20 +97,20 @@ $annees8000 = "SELECT year FROM movies-movies_full
                 WHERE $lesannees BETWEEN 2000 AND 2020";
 ?>
 
-<select class="year" name="year">
+<!-- <select class="year" name="year">
  <option value="<?php echo $annees0020 ?>">1900-1920</option>
  <option value="<?php echo $annees2040 ?>">1920-1940</option>
  <option value="<?php echo $annees4060 ?>">1940-1960</option>
  <option value="<?php echo $annees6080 ?>">1960-1980</option>
  <option value="<?php echo $annees8000 ?>">1980-2000</option>
  <option value="<?php echo $annees8020 ?>">2000-2020</option>
-</select> -->
+</select> --> -->
 <?php
 
 
 // lien detail
 foreach ( $movies as $movie ) {
-  echo '<a href="detail.php?id=' . $movie['id'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
+  echo '<a href="detail.php?slug=' . $movie['slug'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
   echo $movie['title'];
 };
 ?>
