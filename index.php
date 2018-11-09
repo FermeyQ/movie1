@@ -71,12 +71,14 @@ $movies = $query->fetchAll();
       <input type="checkbox" name="Western " class="checkbox" <?=(isset($_POST['Western '])?' checked':'')?>/> Western
       <input type="checkbox" name="N/A " class="checkbox" <?=(isset($_POST['N/A '])?' checked':'')?>/> N/A
   </form>
+<?php
 
+ ?>
 <?php
 
 // lien detail
 foreach ( $movies as $movie ) {
-  echo '<a href="detail.php?id=' . $movie['id'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
+  echo '<a href="detail.php?slug=' . $movie['slug'] . '"><img src="posters/' . $movie['id'] . '.jpg" alt=" '. $movie['slug'].'"></a>';
   echo $movie['title'];
 };
 ?>

@@ -1,0 +1,12 @@
+#wrapper {
+	width:100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.error {color:red;font-size: .8em;}
+
+
+header {background-color: grey;color:#fff;}
+header a {color:#fff;}
+
+footer {background-color: grey; height:100px;}

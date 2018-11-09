@@ -5,21 +5,27 @@
 $title ='Details';
 
 // requete id
-if(!empty($_GET['id']) && is_numeric($_GET['id'])) {
- $id = $_GET['id'];
-}
-$sql = "SELECT * FROM movies_full WHERE id = $id";
+if(!empty($_GET['slug'])) {
+$slug = $_GET['slug'];
+$sql = "SELECT * FROM movies_full WHERE slug = $slug";
 $query = $pdo ->prepare($sql);
 $query -> execute();
 $movies = $query->fetch();
+}
+print_r($movies);
 ?>
+<?php if (isLogged()): ?>
 
+<?php endif; ?>
 <?php include('inc/header.php'); ?>
 
 <!-- poster -->
-<img src="posters/<?php echo $id ?>.jpg" alt="<?php echo $movies['slug'] ?>">
+<img src="posters/<?php echo $movies['id'] ?>.jpg" alt="<?php echo $movies['slug'] ?>">
 <br>
-
+<a href="filmsavoir.php?id= <?php echo $id ?>">
+<input type="submit" name="submitted" value="">
+</a>
+<br>
 <?php
 
 // tout les details
@@ -37,6 +43,7 @@ echo 'popularity : ' . $movies['popularity'] . '<br>';
 echo 'modified : ' . $movies['modified'] . '<br>';
 echo 'created : ' . $movies['created'] . '<br>';
 echo 'poster_flag : ' . $movies['poster_flag'] . '<br>';
+
 ?>
 
 <?php include('inc/footer.php'); ?>

@@ -9,6 +9,7 @@
     <nav>
       <ul>
       <li><a href="index.php">Accueil</a></li>
+      <li><a href="admin/dashboard.php">Dashboard</a></li>
       <?php if (isLogged()){ ?>
         <li><a href="deconnection.php">déconnexion</a></li>
         <li>Bonjour <?php echo $_SESSION['user']['pseudo']; ?></li>
