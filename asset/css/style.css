@@ -1,18 +1,50 @@
-@reset.css;
-nav ul{
+@import "reset.css";
 
+
+
+body{
+  background-color: #afafaf;
 }
-nav ul li{
-  list-style-type: none;  display: inline-block;
-    width: 15%;
+
+h1{
+  font-size: 32px;
+  text-shadow: 0px 0px #0c0, 1px 1px #060, -3px 0 4px #000;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #b0ab00;
+  padding:16px;
+  font-weight:lighter;
+  -moz-box-shadow: 2px 2px 6px #888;
+  -webkit-box-shadow: 2px 2px 6px #888;
+  box-shadow:2px 2px 6px #888;
+  text-align:center;
+  display:block;
+  margin:16px;
 }
-nav ul li a{
+
+header a:hover{
+  background-color: #7f7bff;
+  border-radius: 10px;
+}
+
+header nav ul {
+  float: right;
+  margin: 15px;
+}
+
+header nav ul li{
+  padding: 10px;
+  float: left;
+}
+
+header nav ul li a{
+  border-radius: 10px;
   padding:15px;
-  background-color: black;
+  background-color: #5a56dc;
   color:#fff;
+  text-decoration: none;
 }
-header{
-  display: inline-block;
-  background-color: darkgrey;
-  margin:auto;
+
+form{
+  padding: 50px;
+
 }
