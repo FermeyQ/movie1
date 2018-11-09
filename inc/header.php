@@ -9,7 +9,12 @@
     <nav>
       <ul>
       <li><a href="index.php">Accueil</a></li>
-      <li><a href="inscription.php">Inscription</a></li>
-      <li><a href="connection.php">Connexion</a></li>
+      <?php if (isLogged()){ ?>
+        <li><a href="deconnection.php">déconnexion</a></li>
+        <li>Bonjour <?php echo $_SESSION['user']['pseudo']; ?></li>
+      <?php }else{ ?>
+        <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="connection.php">Connexion</a></li>
+      <?php } ?>
       </ul>
     </nav>
